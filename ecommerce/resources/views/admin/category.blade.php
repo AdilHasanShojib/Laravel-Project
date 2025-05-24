@@ -75,12 +75,15 @@
               <table class="table_deg">
                 <tr>
                   <th>Category Name</th>
+                  <th>Action</th>
                 </tr>
                 @foreach ($data as $item)
                 
                 <tr>
                   <td>{{$item->category_name}}</td>
+                  <td><a class="btn btn-danger" href="{{url('delete_category',$item->id)}}">Delete</a></td>
                 </tr>
+                
                     
                 @endforeach
               </table>
