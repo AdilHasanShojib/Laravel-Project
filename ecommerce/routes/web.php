@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -33,5 +34,10 @@ require __DIR__.'/auth.php';
 // ✅ Admin-only routes
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('admin/dashboard', [HomeController::class, 'index'])->name('admin.dashboard');
+    Route::get('view_category', [AdminController::class, 'view_category']);
+    
+    
 });
+
+Route::post('add_category', [AdminController::class, 'add_category']);
 
