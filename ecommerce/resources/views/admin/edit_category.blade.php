@@ -58,38 +58,21 @@
         <div class="page-header">
           <div class="container-fluid">
 
-            <h1 style="color:white; text-align:center;">Add Category</h1>
+            <h1 style="color:white; text-align:center;">Edit Category</h1>
 
           
             <div class="div_deg">
-            <form action="{{url('add_category')}}" method="post" >
+            <form action="{{url('update_category',$data->id)}}" method="post" >
                 @csrf
             <div>
-                <input type="text" name="category">
-                <input type="submit" class="btn btn-primary" value="+Add">
+                <input type="text" name="category" value="{{$data->category_name}}">
+                <input type="submit" class="btn btn-secondary" value="Update">
             </div>
           </form>
             </div>
 
-            <div>
-              <table class="table_deg">
-                <tr>
-                  <th>Category Name</th>
-                  <th colspan="2">Actions</th>
-                </tr>
-                @foreach ($data as $item)
-                
-                <tr>
-                  <td>{{$item->category_name}}</td>
-                  
-                 <td><a class="btn btn-danger" href="{{url('delete_category',$item->id)}}" onclick="confirmation(event)">Delete</a></td>
-                 <td><a class="btn btn-success" href="{{url('edit_category',$item->id)}}">Edit</a></td>
-                </tr>
-                
-                    
-                @endforeach
-              </table>
-            </div>
+            
+           
           
 
 
