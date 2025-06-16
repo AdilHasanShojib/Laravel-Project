@@ -41,6 +41,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::post('update_category/{id}', [AdminController::class, 'update_category']);
     Route::get('add_product', [AdminController::class, 'add_product']);
     Route::post('upload_product', [AdminController::class, 'upload_product']);
+    Route::get('view_product', [AdminController::class, 'view_product']);
     
    
     
