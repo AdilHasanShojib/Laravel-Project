@@ -26,10 +26,13 @@
         td{
             border: 1px solid skyblue;
             text-align:center;
+            color:white;
 
 
         }
     </style>
+
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
    <header class="header">
@@ -67,7 +70,12 @@
                 </tr>
               @endforeach
             </table>
+            
            </div>
+           <div class="div_deg">
+             {{$product->onEachSide(1)->links()}}
+           </div>
+           
           </div>
         </div>
       </div>
