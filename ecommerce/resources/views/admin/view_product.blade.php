@@ -33,6 +33,8 @@
     </style>
 
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
   </head>
   <body>
    <header class="header">
@@ -55,6 +57,7 @@
                     <th>Price</th>
                     <th>Quantity</th>
                     <th>Image</th>
+                    <th>Action</th>
                 </tr>
               @foreach($product as $products)
                 <tr>
@@ -65,6 +68,10 @@
                     <td>{{$products->quantity}}</td>
                     <td>
                         <img height="120" width="120" src="products/{{$products->image}}" alt="No Image Found" >
+                    </td>
+
+                    <td>
+                        <a class="btn btn-danger" href="{{url('delete_product',$products->id)}}" onclick="confirmation(event)">Delete</a>
                     </td>
 
                 </tr>
@@ -91,6 +98,33 @@
       </div>
     </div>
     <!-- JavaScript files-->
+     <script type="text/javascript">
+     function confirmation(e){
+      e.preventDefault();
+
+      var urlToRedirect=e.currentTarget.getAttribute('href');
+
+      swal({
+
+        title:"Are you want to Delete This",
+        text:"This Delete Will be Permanent",
+        icon:"warning",
+        buttons: true,
+        dangerMode: true,
+
+
+      })
+      .then((willCancel)=>{
+
+        if(willCancel){
+          window.location.href=urlToRedirect;
+        }
+
+      })
+
+     }
+
+    </script>
     <script src="{{asset('admincss/vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('admincss/vendor/popper.js/umd/popper.min.js')}}"> </script>
     <script src="{{asset('admincss/vendor/bootstrap/js/bootstrap.min.js')}}"></script>

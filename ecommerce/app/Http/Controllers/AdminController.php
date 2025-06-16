@@ -94,4 +94,12 @@ class AdminController extends Controller
         $product= Product::paginate(2);
         return view('admin.view_product',compact('product'));
     }
+
+    function delete_product($id){
+        $data= Product::find($id);
+        $data->delete();
+        toastr()->closeButton()->addWarning('Delete Item Successfully!');
+        return redirect()->back();
+
+    }
 }
