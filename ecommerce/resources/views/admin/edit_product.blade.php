@@ -2,40 +2,57 @@
 <html>
   <head> 
     @include('admin.css')
-    <style>
+
+    <style type="text/css">
+
+        input[type='text']{
+            width: 400px;
+            height: 50px;
+        }
+
         .div_deg{
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 60px;
-        
+            margin: 30px;
         }
 
         .table_deg{
-            border: 2px solid greenyellow;
+          text-align: center;
+          margin: auto;
+          border: 2px solid yellowgreen;
+          margin-top: 50px;
+          width: 600px;
+
+
         }
 
         th{
-            background-color:skyblue;
-            color:white;
-            font-size:19px;
-            font-weight: bold;
-            padding:15px;
+          background-color: skyblue;
+          padding: 15px;
+          font-size: 20px;
+          font-weight: bold;
+          color: white;
         }
 
         td{
-            border: 1px solid skyblue;
-            text-align:center;
-            color:white;
-
-
+          color: white;
+          padding: 10px;
+          border: 1px solid skyblue;
         }
+
+        label{
+            display:inline-block;
+            width:200px;
+            padding: 20px;
+        }
+
+        
+
     </style>
-
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
   </head>
+
+
   <body>
    <header class="header">
     @include('admin.header')
@@ -48,46 +65,38 @@
       <div class="page-content">
         <div class="page-header">
           <div class="container-fluid">
-           <div class="div_deg">
-            <table class="table_deg">
-                <tr>
-                    <th>Product Title</th>
-                    <th>Description</th>
-                    <th>Category</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Image</th>
-                    <th colspan="2">Action</th>
-                </tr>
-              @foreach($product as $products)
-                <tr>
-                    <td>{{$products->title}}</td>
-                    <td>{!!Str::limit($products->description,50)!!}</td>
-                    <td>{{$products->category}}</td>
-                    <td>{{$products->price}}</td>
-                    <td>{{$products->quantity}}</td>
-                    <td>
-                        <img height="120" width="120" src="products/{{$products->image}}" alt="No Image Found" >
-                    </td>
 
-                     <td>
-                        <a class="btn btn-primary" href="{{url('edit_product',$products->id)}}">Edit</a>
-                    </td>
+            <h1 style="color:white; text-align:center;">Edit Category</h1>
 
-                    <td>
-                        <a class="btn btn-danger" href="{{url('delete_product',$products->id)}}" onclick="confirmation(event)">Delete</a>
-                    </td>
-                   
+          
+            <div class="div_deg">
+            <form action="{{url('update_product',$data->id)}}" method="post" enctype="multipart/form-data" >
+                @csrf
+            <div>
+               <label>Title</label> <input type="text" name="title" value="{{$data->title}}"> <br> <br>
+               <label>Description</label> <textarea type="text" name="description">{{$data->description}}</textarea> <br> <br>
+               <label>Category</label> <select name="category">
+                <option value="{{$data->category}}">{{$data->category}}</option>
+                @foreach($category as $category)
+                <option>{{$category->category_name}}</option>
+                @endforeach
+               </select> <br> <br>
+               <label>Price</label> <input type="text" name="price" value="{{$data->price}}"> <br> <br>
+               <label>Quantity</label> <input type="text" name="quantity" value="{{$data->quantity}}"> <br> <br> 
+               <label>Current Image</label> <img height="120" width="120" src="/products/{{$data->image}}" alt="No Image Found" > <br> <br> <br>
+               <input type="file" name="image"> <br> <br> <br>
+                <input type="submit" class="btn btn-success" value="Update">
+            </div>
+          </form>
+            </div>
 
-                </tr>
-              @endforeach
-            </table>
             
-           </div>
-           <div class="div_deg">
-             {{$product->onEachSide(1)->links()}}
-           </div>
            
+          
+
+
+
+
           </div>
         </div>
       </div>
@@ -103,7 +112,7 @@
       </div>
     </div>
     <!-- JavaScript files-->
-     <script type="text/javascript">
+    <script type="text/javascript">
      function confirmation(e){
       e.preventDefault();
 
@@ -130,6 +139,7 @@
      }
 
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{{asset('admincss/vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('admincss/vendor/popper.js/umd/popper.min.js')}}"> </script>
     <script src="{{asset('admincss/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
