@@ -17,14 +17,41 @@ class HomeController extends Controller
 
     public function home(){
         $product=Product::all();
-        return view('home.index',compact('product'));
+        if(Auth::id()){
+
+        $user=Auth::user();
+        $user_id=$user->id;
+        $count=cart::where('user_id',$user_id)->count();
+        
+        }
+        else{
+            $count=0;
+            
+        }
+        
+        return view('home.index',compact('product', 'count'));
     }
 
    function details_product($id){
+     $data=Product::find($id);
 
-      $data=Product::find($id);
+     if(Auth::id()){
 
-      return view('home.details_product',compact('data'));
+        $user=Auth::user();
+        $user_id=$user->id;
+        $count=cart::where('user_id',$user_id)->count();
+        
+        }
+        else{
+            $count=0;
+            
+        }
+
+     
+
+     
+
+      return view('home.details_product',compact('data', 'count'));
 
    }
 
