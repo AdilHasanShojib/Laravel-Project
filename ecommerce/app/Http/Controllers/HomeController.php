@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\User;
+use App\Models\cart;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -16,4 +19,31 @@ class HomeController extends Controller
         $product=Product::all();
         return view('home.index',compact('product'));
     }
+
+   function details_product($id){
+
+      $data=Product::find($id);
+
+      return view('home.details_product',compact('data'));
+
+   }
+
+
+   function add_cart($id){
+
+    $product_id=$id;
+    $user=Auth::user();
+    $user_id=$user->id;
+    $cart=new cart;
+    $cart->user_id=$user_id;
+    $cart->product_id=$product_id;
+    $cart->save();
+    toastr()->closeButton()->addSuccess('Product Added Successfully!');
+    return redirect()->back();
+
+
+   }
+
+
+
 }
