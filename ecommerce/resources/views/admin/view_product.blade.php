@@ -58,7 +58,7 @@
 
             <form action="{{url('search_product')}}" method="get">
               @csrf
-              <input type="text" name="search">
+              <input type="search" name="search">
               <input type="submit"  class="btn btn-primary" Value="Search">
             </form>
 

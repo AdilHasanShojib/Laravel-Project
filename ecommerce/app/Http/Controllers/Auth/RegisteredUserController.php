@@ -42,7 +42,7 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'phone' => $request->phone,
-            'address' => $request->email,
+            'address' => $request->address,
             'password' => Hash::make($request->password),
         ]);
 
