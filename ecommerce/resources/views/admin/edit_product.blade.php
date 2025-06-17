@@ -85,7 +85,9 @@
                <label>Quantity</label> <input type="text" name="quantity" value="{{$data->quantity}}"> <br> <br> 
                <label>Current Image</label> <img height="120" width="120" src="/products/{{$data->image}}" alt="No Image Found" > <br> <br> <br>
                <input type="file" name="image"> <br> <br> <br>
-                <input type="submit" class="btn btn-success" value="Update">
+                <div style="display: flex; justify-content: center;">
+               <input type="submit" class="btn btn-success" value="Update">
+             </div>
             </div>
           </form>
             </div>

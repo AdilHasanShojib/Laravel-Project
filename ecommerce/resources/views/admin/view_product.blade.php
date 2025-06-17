@@ -30,6 +30,13 @@
 
 
         }
+
+        input[type="search"]{
+
+          width: 400px;
+          height: 40px;
+          margin-left: 100px;
+        }
     </style>
 
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -48,6 +55,14 @@
       <div class="page-content">
         <div class="page-header">
           <div class="container-fluid">
+
+            <form action="{{url('search_product')}}" method="get">
+              @csrf
+              <input type="text" name="search">
+              <input type="submit"  class="btn btn-primary" Value="Search">
+            </form>
+
+
            <div class="div_deg">
             <table class="table_deg">
                 <tr>
@@ -71,7 +86,7 @@
                     </td>
 
                      <td>
-                        <a class="btn btn-primary" href="{{url('edit_product',$products->id)}}">Edit</a>
+                        <a class="btn btn-secondary" href="{{url('edit_product',$products->id)}}">Edit</a>
                     </td>
 
                     <td>

@@ -136,4 +136,24 @@ class AdminController extends Controller
        
 
     }
+
+    function search_product(Request $req){
+
+        if ($req->has('search') && !empty($req->search)) {
+           $search = $req->search;
+           $product = Product::where('title', 'LIKE', '%'.$search.'%')
+                ->orWhere('category', 'LIKE', '%'.$search.'%')
+                ->paginate(2);
+
+            } 
+            
+            else {
+              $product = Product::paginate(2); // show all if no search
+          }
+
+          return view('admin.view_product',compact('product'));
+
+
+
+    }
 }
