@@ -19,7 +19,7 @@
                     
                   </ul>
                 </li>
-                <li><a href="login.html"> <i class="icon-logout"></i>Login page </a></li>
+                <li><a href="{{url('view_orders')}}"> <i class="icon-grid"></i>Orders</a></li>
        
        
       </nav>
