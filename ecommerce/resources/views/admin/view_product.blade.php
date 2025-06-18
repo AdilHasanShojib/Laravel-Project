@@ -24,7 +24,7 @@
         }
 
         td{
-            border: 1px solid skyblue;
+            border: 1px solid skyblue !important;
             text-align:center;
             color:white;
 

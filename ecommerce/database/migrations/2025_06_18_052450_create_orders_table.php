@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('phone')->nullable();
             $table->string('address')->nullable();
-            $table->string('status')->default('in Progress');
+            $table->string('status')->default('In Progress');
             $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('product_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

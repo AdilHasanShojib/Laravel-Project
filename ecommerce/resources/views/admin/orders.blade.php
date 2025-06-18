@@ -24,7 +24,7 @@
         }
 
         td{
-            border: 1px solid skyblue;
+            border: 1px solid skyblue !important;
             text-align:center;
             color:white;
 
@@ -66,6 +66,7 @@
                     <th>Price</th>
                     <th>Image</th>
                     <th>Status</th>
+                    <th>Change Status</th>
                 </tr>
               @foreach($orders as $products)
                 <tr>
@@ -78,9 +79,21 @@
                         <img height="100" width="70" src="products/{{$products->product->image}}" alt="No Image Found" >
                     </td>
 
-                     <td>{{$products->status}}</td>
+                     <td>
 
-                     
+                        @if($products->status == 'On the Way')
+                        <span class="text-warning">On the Way</span>
+                        @elseif($products->status == 'Delivered')
+                        <span class="text-success">Delivered</span>
+                        @else
+                        <span class="text-danger">In Progress</span>
+                        @endif
+                    </td>
+
+                     <td>
+                        <a class="btn btn-primary" href="{{url('on_way',$products->id)}}">On the Way</a>
+                        <a class="btn btn-success" href="{{url('delivered',$products->id)}}">Delivered</a>
+                     </td>
 
                   
    
