@@ -67,6 +67,7 @@
                     <th>Image</th>
                     <th>Status</th>
                     <th>Change Status</th>
+                    <th>Print</th>
                 </tr>
               @foreach($orders as $products)
                 <tr>
@@ -91,8 +92,12 @@
                     </td>
 
                      <td>
-                        <a class="btn btn-primary" href="{{url('on_way',$products->id)}}">On the Way</a>
-                        <a class="btn btn-success" href="{{url('delivered',$products->id)}}">Delivered</a>
+                        <a href="{{url('on_way',$products->id)}}">On the Way</a>
+                        <a  href="{{url('delivered',$products->id)}}">Delivered</a>
+                     </td>
+
+                     <td>
+                        <a class="btn btn-secondary" href="{{url('print_pdf',$products->id)}}" target="_blank">PDF</a>
                      </td>
 
                   

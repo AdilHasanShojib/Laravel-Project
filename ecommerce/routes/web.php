@@ -47,6 +47,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('view_orders', [AdminController::class, 'view_orders']);
     Route::get('on_way/{id}', [AdminController::class, 'on_way']);
     Route::get('delivered/{id}', [AdminController::class, 'delivered']);
+    Route::get('print_pdf/{id}', [AdminController::class, 'print_pdf']);
     
    
     

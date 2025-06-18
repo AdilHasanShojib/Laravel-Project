@@ -73,6 +73,7 @@
                     <th>Quantity</th>
                     <th>Image</th>
                     <th colspan="2">Action</th>
+                    
                 </tr>
               @foreach($product as $products)
                 <tr>

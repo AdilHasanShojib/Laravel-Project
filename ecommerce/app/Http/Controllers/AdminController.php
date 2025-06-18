@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\order;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 
 class AdminController extends Controller
@@ -177,5 +178,11 @@ class AdminController extends Controller
         $data->save();
         toastr()->closeButton()->addSuccess('Order Delivered Successfully!');
         return redirect()->back();
+     }
+
+     function print_pdf($id){
+        $data = order::find($id);
+        $pdf = Pdf::loadView('admin.invoice', compact('data'));
+        return $pdf->download('invoice.pdf');
      }
 }
