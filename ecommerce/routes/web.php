@@ -53,4 +53,5 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
 Route::get('details_product/{id}',[HomeController::class,'details_product']);
 Route::get('add_cart/{id}',[HomeController::class,'add_cart'])->middleware(['auth', 'verified']);
-
+Route::get('mycart',[HomeController::class,'mycart'])->middleware(['auth', 'verified']);
+Route::get('remove_cart/{id}',[HomeController::class,'remove_cart'])->middleware(['auth', 'verified']);

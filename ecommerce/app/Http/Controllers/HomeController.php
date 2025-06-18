@@ -72,5 +72,28 @@ class HomeController extends Controller
    }
 
 
+   function mycart(){
+
+    if(Auth::id()){
+
+        $user=Auth::user();
+        $user_id=$user->id;
+        $count=cart::where('user_id',$user_id)->count();
+        $cart=cart::where('user_id',$user_id)->get();
+        
+        }
+
+    return view('home.mycart',compact('count','cart'));
+   }
+
+   function remove_cart($id){
+
+    $cart=cart::find($id);
+    $cart->delete();
+    toastr()->closeButton()->addSuccess('Product Removed Successfully!');
+    return redirect()->back();
+
+   }
+
 
 }
