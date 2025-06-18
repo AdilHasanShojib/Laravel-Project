@@ -50,6 +50,11 @@
                 </tr>
             </thead>
             <tbody>
+
+                <?php
+                $value = 0;
+
+                ?>
                 @foreach($cart as $item)
                 <tr>
                 <td>{{ $item->product->title }}</td>
@@ -58,10 +63,19 @@
                 <td> <img width="100" height="50" src="/products/{{ $item->product->image }}" alt="No Image Found"></td>
                 <td><a href="{{ url('remove_cart', $item->id) }}" class="btn btn-danger">Remove</a></td>
                 </tr>
+
+                <?php
+                $value += $item->product->price;
+                ?>
                 @endforeach
             </tbody>
             </table>
     
+            
+         </div>
+
+         <div>
+            <h4 class="text-center">Total Price: {{ $value }}</h4>
             
          </div>
     
