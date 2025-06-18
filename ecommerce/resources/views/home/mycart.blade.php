@@ -7,6 +7,12 @@
     .div_deg {
         padding: 50px;
         background-color: #f8f9fa;
+        display: flex;
+        justify-content: space-between;
+        
+
+
+
     }
 
     .table {
@@ -27,6 +33,11 @@
     .text-center {
         text-align: center;
     }
+
+    label{
+        display: inline-block;
+        width: 150px;
+    }
 </style>
 </head>
 
@@ -37,6 +48,25 @@
     <!-- end header section -->
 
        <div class="div_deg">
+        <div>
+            <form action="{{url('order')}}" method="POST">
+                @csrf
+                <div>
+                    <label>Receiver Name</label>
+                    <input type="text" name="name" class="form-control" value="{{Auth::user()->name}}"> <br>
+               
+                    <label>Receiver Address</label>
+                    <textarea name="address" class="form-control">{{Auth::user()->address}}</textarea> <br> 
+                
+                    <label>Receiver Phone</label>
+                    <input type="text" name="phone" class="form-control" value="{{Auth::user()->phone}}" > <br> <br>
+                
+
+                
+                    <input type="submit" value="Place Order" class="btn btn-success">
+                </div>
+            </form>
+        </div>
         <div class="container">
             <h1 class="text-center">My Cart</h1>
             <table class="table table-bordered">
@@ -70,14 +100,16 @@
                 @endforeach
             </tbody>
             </table>
+
+            <div>
+            <h4 class="text-center">Total Price: {{ $value }}</h4>
+            
+         </div>
     
             
          </div>
 
-         <div>
-            <h4 class="text-center">Total Price: {{ $value }}</h4>
-            
-         </div>
+         
     
 
 
