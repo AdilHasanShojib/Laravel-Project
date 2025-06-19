@@ -101,7 +101,7 @@
             
            </div>
            <div class="div_deg">
-             {{$product->onEachSide(1)->links()}}
+             {{$product->onEachSide(4)->links()}}
            </div>
            
           </div>

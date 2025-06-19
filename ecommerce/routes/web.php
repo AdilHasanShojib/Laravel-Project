@@ -66,3 +66,8 @@ Route::controller(HomeController::class)->group(function(){
     Route::get('stripe', 'stripe');
     Route::post('stripe', 'stripePost')->name('stripe.post');
 });
+
+Route::get('shops',[HomeController::class,'shops']);
+Route::get('why',[HomeController::class,'why']);
+Route::get('testimonial',[HomeController::class,'testimonial']);
+Route::get('contacts',[HomeController::class,'contacts']);

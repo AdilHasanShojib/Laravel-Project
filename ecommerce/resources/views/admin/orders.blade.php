@@ -56,7 +56,10 @@
         <div class="page-header">
           <div class="container-fluid">
 
+            <h1 class="text-center">All Orders</h1>
+
             <div class="div_deg">
+              
             <table class="table_deg">
                 <tr>
                     <th>Customer Name</th>
@@ -65,6 +68,7 @@
                     <th>Product Title</th>
                     <th>Price</th>
                     <th>Image</th>
+                    <th>Payment Status</th>
                     <th>Status</th>
                     <th>Change Status</th>
                     <th>Print</th>
@@ -79,6 +83,8 @@
                     <td>
                         <img height="100" width="70" src="products/{{$products->product->image}}" alt="No Image Found" >
                     </td>
+
+                    <td>{{$products->payment_status}}</td>
 
                      <td>
 

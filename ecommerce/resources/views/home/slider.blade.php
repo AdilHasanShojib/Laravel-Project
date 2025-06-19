@@ -9,19 +9,21 @@
                     <div class="detail-box"> 
                       <h1>
                         Welcome To Our <br>
-                        Gift Shop
+                        QURIOUS Shop
                       </h1>
                       <p>
-                        Sequi perspiciatis nulla reiciendis, rem, tenetur impedit, eveniet non necessitatibus error distinctio mollitia suscipit. Nostrum fugit doloribus consequatur distinctio esse, possimus maiores aliquid repellat beatae cum, perspiciatis enim, accusantium perferendis.
+                       It's a modern and user-friendly eCommerce platform designed to make online shopping simple, secure, and enjoyable. Whether you're looking for fashion, electronics, or everyday essentials, QURIOUS brings a wide range of quality products right to your fingertips.
+
+
                       </p>
-                      <a href="">
+                      <a href="{{url('contacts')}}" >
                         Contact Us
                       </a>
                     </div>
                   </div>
                   <div class="col-md-5 ">
                     <div class="img-box">
-                      <img style="width:600px" src="images/image3.jpeg" alt="" />
+                      <img style="width:500px" src="images/image3.jpeg" alt="" />
                     </div>
                   </div>
                 </div>

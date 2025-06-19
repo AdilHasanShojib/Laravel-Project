@@ -103,7 +103,7 @@
             </table>
 
             <div>
-            <h4 class="text-center">Total Value of Cart is: {{ $value }}</h4>
+            <h4 class="text-center">Total Value of Cart is: {{ $value }} Taka</h4>
             
          </div>
     

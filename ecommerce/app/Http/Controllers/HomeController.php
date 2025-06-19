@@ -24,7 +24,8 @@ class HomeController extends Controller
     }
 
     public function home(){
-        $product=Product::all();
+        $product = Product::latest()->take(4)->get();
+
         if(Auth::id()){
 
         $user=Auth::user();
@@ -167,5 +168,77 @@ class HomeController extends Controller
               
         return back();
     }
+
+    public function shops(){
+        $product=Product::paginate(8);
+        if(Auth::id()){
+
+        $user=Auth::user();
+        $user_id=$user->id;
+        $count=cart::where('user_id',$user_id)->count();
+        
+        }
+        else{
+            $count=0;
+            
+        }
+        
+        return view('home.products',compact('product', 'count'));
+    }
+
+
+     public function why(){
+        $product=Product::all();
+        if(Auth::id()){
+
+        $user=Auth::user();
+        $user_id=$user->id;
+        $count=cart::where('user_id',$user_id)->count();
+        
+        }
+        else{
+            $count=0;
+            
+        }
+        
+        return view('home.why',compact('product', 'count'));
+    }
+
+     public function testimonial(){
+        $product=Product::all();
+        if(Auth::id()){
+
+        $user=Auth::user();
+        $user_id=$user->id;
+        $count=cart::where('user_id',$user_id)->count();
+        
+        }
+        else{
+            $count=0;
+            
+        }
+        
+        return view('home.testimonial',compact('product', 'count'));
+    }
+
+
+     public function contacts(){
+        $product=Product::all();
+        if(Auth::id()){
+
+        $user=Auth::user();
+        $user_id=$user->id;
+        $count=cart::where('user_id',$user_id)->count();
+        
+        }
+        else{
+            $count=0;
+            
+        }
+        
+        return view('home.contacts',compact('product', 'count'));
+    }
+
+
 
 }

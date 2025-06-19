@@ -66,7 +66,7 @@
                 @csrf
             <div>
                 <input type="text" name="category">
-                <input type="submit" class="btn btn-primary" value="+Add">
+                <input type="submit" class="btn btn-success" value="+Add">
             </div>
           </form>
             </div>
