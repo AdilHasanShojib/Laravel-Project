@@ -39,6 +39,17 @@
 
             @auth
 
+            
+           <a href="{{url('mycart')}}">
+              <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+              [{{ $count }}]
+            </a>
+            
+            <a href="{{url('myorders')}}">
+              <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+             Orders
+            </a>
+
              <!-- Log out               --> 
             <div class="list-inline-item logout">
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -49,15 +60,6 @@
                Logout <i class="icon-logout"></i> </a>
            </div>
 
-           <a href="{{url('mycart')}}">
-              <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-              [{{ $count }}]
-            </a>
-            <form class="form-inline ">
-              <button class="btn nav_search-btn" type="submit">
-                <i class="fa fa-search" aria-hidden="true"></i>
-              </button>
-            </form>
 
 
           @else
