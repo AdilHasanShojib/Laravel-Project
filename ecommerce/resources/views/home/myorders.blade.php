@@ -69,7 +69,7 @@
               
               <td>{{ $order->product->title }}</td>
               
-              <td>${{ $order->product->price }}</td>
+              <td>{{ $order->product->price }}</td>
               <td> <img width="100" height="50" src="/products/{{ $order->product->image }}" alt="No Image Found"></td>
               <td>{{ $order->status }}</td>
             </tr>
