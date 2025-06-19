@@ -8,7 +8,8 @@ use App\Models\User;
 use App\Models\cart;
 use App\Models\order;
 use Illuminate\Support\Facades\Auth;
-
+use Stripe;
+use Session;
 class HomeController extends Controller
 {
     function index(){
@@ -144,5 +145,27 @@ class HomeController extends Controller
     return view('home.myorders',compact('count', 'orders'));
    }
 
+
+   public function stripe()
+    {
+        return view('home.stripe');
+    }
+ 
+
+    public function stripePost(Request $request)
+    {
+        Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+    
+        Stripe\Charge::create ([
+                "amount" => 100 * 100,
+                "currency" => "usd",
+                "source" => $request->stripeToken,
+                "description" => "Test payment from Complete" 
+        ]);
+      
+        Session::flash('success', 'Payment successful!');
+              
+        return back();
+    }
 
 }

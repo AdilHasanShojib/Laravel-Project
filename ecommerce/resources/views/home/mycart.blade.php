@@ -48,7 +48,7 @@
     <!-- end header section -->
 
        <div class="div_deg">
-        <div>
+        <div class="col-md-4">
             <form action="{{url('order')}}" method="POST">
                 @csrf
                 <div>
@@ -63,7 +63,8 @@
                 
 
                 
-                    <input type="submit" value="Place Order" class="btn btn-success">
+                    <input type="submit" value="Cash on Delivery" class="btn btn-success">
+                    <a class="btn btn-primary" href="{{url('stripe')}}">Pay Using Card</a>
                 </div>
             </form>
         </div>
@@ -102,7 +103,7 @@
             </table>
 
             <div>
-            <h4 class="text-center">Total Price: {{ $value }}</h4>
+            <h4 class="text-center">Total Value of Cart is: {{ $value }}</h4>
             
          </div>
     
