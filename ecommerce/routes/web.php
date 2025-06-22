@@ -41,7 +41,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::post('upload_product', [AdminController::class, 'upload_product']);
     Route::get('view_product', [AdminController::class, 'view_product']);
     Route::get('delete_product/{id}', [AdminController::class, 'delete_product']);
-    Route::get('edit_product/{id}', [AdminController::class, 'edit_product']);
+    Route::get('edit_product/{slug}', [AdminController::class, 'edit_product']);
     Route::post('update_product/{id}', [AdminController::class, 'update_product']);
     Route::get('search_product', [AdminController::class, 'search_product']);
     Route::get('view_orders', [AdminController::class, 'view_orders']);

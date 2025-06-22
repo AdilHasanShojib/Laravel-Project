@@ -111,9 +111,9 @@ class AdminController extends Controller
     }
 
 
-    function edit_product($id){
+    function edit_product($slug){
 
-        $data= Product::find($id);
+        $data= Product::where('slug', $slug)->get()->first();
         $category= Category::all();
         return view('admin.edit_product',compact('data','category'));
 

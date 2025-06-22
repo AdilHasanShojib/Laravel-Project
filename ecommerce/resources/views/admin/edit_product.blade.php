@@ -66,7 +66,7 @@
         <div class="page-header">
           <div class="container-fluid">
 
-            <h1 style="color:white; text-align:center;">Edit Category</h1>
+            <h1 style="color:white; text-align:center;">Edit Product</h1>
 
           
             <div class="div_deg">

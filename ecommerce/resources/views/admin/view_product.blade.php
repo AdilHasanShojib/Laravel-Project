@@ -87,7 +87,7 @@
                     </td>
 
                      <td>
-                        <a class="btn btn-secondary" href="{{url('edit_product',$products->id)}}">Edit</a>
+                        <a class="btn btn-secondary" href="{{url('edit_product',$products->slug)}}">Edit</a>
                     </td>
 
                     <td>
