@@ -88,7 +88,7 @@ class AdminController extends Controller
         }
         
         $data->save();
-        toastr()->closeButton()->addSuccess('Category added Successfully!');
+       
         return redirect()->back();
 
     }

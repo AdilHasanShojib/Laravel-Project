@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head> 
+  
+
     @include('admin.css')
     <style>
         .form{
@@ -52,9 +54,10 @@
         <div class="page-header">
           <div class="container-fluid">
             <h1>Add Product</h1>
+            <div id="message" style="text-align:center; color:white; margin-top:10px;"></div>
           <div class="form">
-            <form action="{{url('upload_product')}}" method="post" enctype="multipart/form-data">
-                @csrf
+            <form id="productForm" action="{{url('upload_product')}}" method="post" enctype="multipart/form-data">
+             
 
                <div class="inp">
                 <label>Product Title</label>
@@ -124,5 +127,45 @@
     <script src="{{asset('admincss/vendor/jquery-validation/jquery.validate.min.js')}}"></script>
     <script src="{{asset('admincss/js/charts-home.js')}}"></script>
     <script src="{{asset('admincss/js/front.js')}}"></script>
+      <!-- Toastr CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
+
+<!-- Toastr JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    
+    <script>
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+    }
+});
+
+$(document).ready(function(){
+
+    $('#productForm').submit(function(e){
+        e.preventDefault(); // Prevent default form submission
+
+        var formData = new FormData(this);
+
+        $.ajax({
+            url: "{{url('upload_product')}}",
+            type: "POST",
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function(response){
+                toastr.success('Product added successfully!', 'Success', {closeButton: true, progressBar: true});
+                $('#productForm')[0].reset();
+            },
+            error: function(xhr){
+                toastr.error('Something went wrong!', 'Error', {closeButton: true, progressBar: true});
+            }
+        });
+    });
+
+});
+</script>
+
+
   </body>
 </html>
